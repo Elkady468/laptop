@@ -1,0 +1,20 @@
+part of 'product_cubit.dart';
+
+@immutable
+sealed class ProductState {}
+
+final class SurahInitial extends ProductState {}
+
+final class ProductSuccess extends ProductState {
+  final List<ProductModel> products;
+
+  ProductSuccess({required this.products});
+}
+
+final class ProductLoading extends ProductState {}
+
+final class ProductFailure extends ProductState {
+  final String errMessage;
+
+  ProductFailure({required this.errMessage});
+}
